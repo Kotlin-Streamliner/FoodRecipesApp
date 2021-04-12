@@ -1,4 +1,4 @@
-package com.thisisstreamliner.foody.data
+package com.thisisstreamliner.foody.data.remote
 
 import com.thisisstreamliner.foody.models.FoodRecipe
 import retrofit2.Response
