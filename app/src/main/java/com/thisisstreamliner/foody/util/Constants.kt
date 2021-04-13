@@ -1,4 +1,4 @@
-package com.thisisstreamliner.foody
+package com.thisisstreamliner.foody.util
 
 class Constants {
 
