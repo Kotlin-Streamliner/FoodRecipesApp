@@ -55,7 +55,8 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/courgette"
                     android:maxLines="2"
-                    android:text="Title"
+                    android:text="@{result.title}"
+                    tools:text="Lore Ipsulum"
                     android:textColor="@color/darker"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -70,7 +71,8 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="Description"
+                    android:text="@{result.summary}"
+                    tools:text="Description hazime to matel de amout the grab of the title of the eath de commer."
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/titleTextView"
                     app:layout_constraintStart_toStartOf="@+id/titleTextView"
@@ -95,7 +97,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:textColor="@color/red"
-                    android:text="100"
+                    setNumberOfLikes="@{result.aggregateLikes}"
+                    tools:text="100"
                     app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
                     app:layout_constraintTop_toBottomOf="@+id/heartImageView" />
 
@@ -116,7 +119,8 @@
                     android:layout_marginStart="24dp"
                     android:textAlignment="center"
                     android:textColor="@color/yellow"
-                    android:text="100"
+                    tools:text="100"
+                    setNumberOfMinutes="@{result.readyInMinutes}"
                     app:layout_constraintStart_toEndOf="@+id/heartTextView"
                     app:layout_constraintTop_toBottomOf="@+id/clockImageView" />
 
@@ -124,6 +128,7 @@
                     android:id="@+id/leafImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    applyVeganColor="@{result.vegan}"
                     app:layout_constraintEnd_toEndOf="@+id/leafTextView"
                     app:layout_constraintStart_toStartOf="@+id/leafTextView"
                     app:layout_constraintTop_toTopOf="@+id/clockImageView"
@@ -135,7 +140,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:textAlignment="center"
-                    android:text="100"
+                    tools:text="Vegan"
+                    applyVeganColor="@{result.vegan}"
                     app:layout_constraintStart_toEndOf="@+id/clockTextView"
                     app:layout_constraintTop_toBottomOf="@+id/leafImageView" />
 
