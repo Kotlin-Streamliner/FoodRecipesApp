@@ -71,5 +71,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
+    // Coil. An image loading library for Android backed by Kotlin Coroutines
+    implementation("io.coil-kt:coil:1.2.1")
+
 
 }
