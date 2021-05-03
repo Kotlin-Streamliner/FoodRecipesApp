@@ -1,10 +1,12 @@
 package com.thisisstreamliner.foody.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.thisisstreamliner.foody.databinding.RecipesRowLayoutBinding
 import com.thisisstreamliner.foody.models.FoodRecipe
 import com.thisisstreamliner.foody.models.Result
+import com.thisisstreamliner.foody.util.RecipesDiffUtil
 
 class RecipesAdapter: RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
@@ -16,8 +18,10 @@ class RecipesAdapter: RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
     }
 
     fun setData(newData: FoodRecipe) {
+        val recipesDiffUtil = RecipesDiffUtil(recipe, newData.results)
+        val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipe = newData.results
-        notifyDataSetChanged()
+        diffUtilResult.dispatchUpdatesTo(this)
     }
 
     override fun getItemCount(): Int = recipe.size
