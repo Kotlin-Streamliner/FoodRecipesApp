@@ -1,6 +1,7 @@
 package com.thisisstreamliner.foody.ui.fragments.recipes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,7 @@ class RecipesFragment : Fragment() {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_recipes, container, false)
 
+        Log.e("DEBUG", "mainViewModel = $mainViewModel and recipesViewModel = $recipesViewModel")
         setupRecyclerView()
         requestApiData()
         return mView
@@ -48,6 +50,7 @@ class RecipesFragment : Fragment() {
         mainViewModel.recipesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
+                    Log.e("DEBUG", "NetworkResult.Success ${response.data}")
                     hideShimmerEffect()
                     response.data?.let {
                         mAdapter.setData(it)
@@ -55,6 +58,7 @@ class RecipesFragment : Fragment() {
                 }
                 is NetworkResult.Error -> {
                     hideShimmerEffect()
+                    Log.e("DEBUG", "NetworkResult.Error ${response.message}")
                     Toast.makeText(requireContext(), response.message.toString(), Toast.LENGTH_SHORT).show()
                 }
                 is NetworkResult.Loading -> {

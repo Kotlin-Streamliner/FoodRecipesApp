@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -32,8 +33,10 @@ class MainViewModel @Inject constructor(
         if (hasInternetConnection()) {
             try {
                 val response = repository.remote.getRecipes(queries)
+                Log.e("DEBUG:", "getRecipesSafeCall response $response")
                 recipesResponse.value = handleFoodRecipesResponse(response)
             } catch (e: Exception) {
+                Log.e("DEBUG:", "getRecipesSafeCall network error $e")
                 recipesResponse.value = NetworkResult.Error("Recipes not found.")
             }
         } else {
@@ -50,6 +53,7 @@ class MainViewModel @Inject constructor(
                 return NetworkResult.Error("API Key Limited.")
             }
             response.body()!!.results.isNullOrEmpty() -> {
+                Log.e("DEBUG:", "handleFoodRecipesResponse1 network error $response")
                 return NetworkResult.Error("Recipes not found.")
             }
             response.isSuccessful -> {
@@ -57,6 +61,7 @@ class MainViewModel @Inject constructor(
                 return NetworkResult.Success(foodRecipes!!)
             }
             else -> {
+                Log.e("DEBUG:", "handleFoodRecipesResponse2 network error $response")
                 return NetworkResult.Error(response.message())
             }
         }
