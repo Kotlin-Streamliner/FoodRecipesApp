@@ -1,4 +1,4 @@
-package com.thisisstreamliner.foody
+package com.thisisstreamliner.foody.viewmodels
 
 import android.app.Application
 import android.content.Context
