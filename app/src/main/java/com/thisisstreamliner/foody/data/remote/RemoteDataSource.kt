@@ -1,5 +1,6 @@
 package com.thisisstreamliner.foody.data.remote
 
+import com.thisisstreamliner.foody.data.remote.api.FoodRecipesAPI
 import com.thisisstreamliner.foody.models.FoodRecipe
 import retrofit2.Response
 import javax.inject.Inject

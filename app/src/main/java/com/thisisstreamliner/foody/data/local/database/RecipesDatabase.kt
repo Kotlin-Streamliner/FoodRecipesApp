@@ -1,4 +1,4 @@
-package com.thisisstreamliner.foody.data.local
+package com.thisisstreamliner.foody.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

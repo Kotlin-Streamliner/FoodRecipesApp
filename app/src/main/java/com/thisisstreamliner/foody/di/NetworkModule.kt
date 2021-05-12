@@ -1,7 +1,7 @@
 package com.thisisstreamliner.foody.di
 
 import com.thisisstreamliner.foody.util.Constants.Companion.BASE_URL
-import com.thisisstreamliner.foody.data.remote.FoodRecipesAPI
+import com.thisisstreamliner.foody.data.remote.api.FoodRecipesAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

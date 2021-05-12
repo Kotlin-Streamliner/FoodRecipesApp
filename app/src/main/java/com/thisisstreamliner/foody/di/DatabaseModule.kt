@@ -2,7 +2,7 @@ package com.thisisstreamliner.foody.di
 
 import android.content.Context
 import androidx.room.Room
-import com.thisisstreamliner.foody.data.local.RecipesDatabase
+import com.thisisstreamliner.foody.data.local.database.RecipesDatabase
 import com.thisisstreamliner.foody.util.Constants
 import dagger.Module
 import dagger.Provides
